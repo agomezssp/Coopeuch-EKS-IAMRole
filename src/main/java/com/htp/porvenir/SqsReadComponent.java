@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.aws.messaging.listener.SqsMessageDeletionPolicy;
 import org.springframework.cloud.aws.messaging.listener.annotation.SqsListener;
-import org.springframework.stereotype.Controller;
 
 import java.util.HashMap;
 
@@ -12,6 +11,7 @@ import java.util.HashMap;
 public class SqsReadComponent {
 
     protected  SqsWriteComponent sqsWriteComponent;
+
 
     @Autowired
     public SqsReadComponent(SqsWriteComponent sqsWriteComponent) {
@@ -23,7 +23,9 @@ public class SqsReadComponent {
 
         System.out.println(message);
 
-        sqsWriteComponent.send(message, new HashMap<>());
+
+
+        sqsWriteComponent.send(message);
 
     }
 

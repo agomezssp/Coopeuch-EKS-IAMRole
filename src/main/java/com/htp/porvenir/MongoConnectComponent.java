@@ -2,9 +2,11 @@ package com.htp.porvenir;
 
 import com.mongodb.client.*;
 import org.bson.Document;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 
-public class MongoConnect {
+@Slf4j
+public class MongoConnectComponent {
 
 //    @Value("${app.mongo.username}")
 //    protected String username;
@@ -39,28 +41,29 @@ public class MongoConnect {
 
         MongoClient mongoClient = MongoClients.create(connectionString);
 
-        MongoIterable databases = mongoClient.listDatabases();
-        try {
-            while (databases.cursor().hasNext()) {
-                System.out.println(databases.cursor().next().toString());
-            }
-        } finally {
-            databases.cursor().close();
-        }
-
-//        MongoDatabase testDB = mongoClient.getDatabase("sample-database");
-//        MongoCollection<Document> numbersCollection = testDB.getCollection("sample-collection");
-//
-//        Document doc = new Document("name", "pi").append("value", 3.14159);
-//        numbersCollection.insertOne(doc);
-//
-//        MongoCursor<Document> cursor = numbersCollection.find().iterator();
+//        MongoIterable databases = mongoClient.listDatabases();
 //        try {
-//            while (cursor.hasNext()) {
-//                System.out.println(cursor.next().toJson());
+//            while (databases.cursor().hasNext()) {
+//                System.out.println(databases.cursor().next().toString());
+//                databases.cursor().next();
 //            }
 //        } finally {
-//            cursor.close();
+//            databases.cursor().close();
 //        }
+
+        MongoDatabase testDB = mongoClient.getDatabase("sample-database");
+        MongoCollection<Document> numbersCollection = testDB.getCollection("sample-collection");
+
+        Document doc = new Document("name", "pi").append("value", 3.14159);
+        numbersCollection.insertOne(doc);
+
+        MongoCursor<Document> cursor = numbersCollection.find().iterator();
+        try {
+            while (cursor.hasNext()) {
+                System.out.println(cursor.next().toJson());
+            }
+        } finally {
+            cursor.close();
+        }
     }
 }
