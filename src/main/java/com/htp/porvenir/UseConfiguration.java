@@ -7,14 +7,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class UseConfiguration {
 
-    @Bean
-    public MongoConnectComponent mongoConnectComponent(){
-        return new MongoConnectComponent();
-    }
 
     @Bean
-    public SqsWriteComponent sqsWriteComponent(AmazonSQSAsync amazonSQSAsync, MongoConnectComponent mongoConnectComponent){
-        return new SqsWriteComponent(amazonSQSAsync, mongoConnectComponent);
+    public SqsWriteComponent sqsWriteComponent(AmazonSQSAsync amazonSQSAsync){
+        return new SqsWriteComponent(amazonSQSAsync);
     }
 
     @Bean

@@ -9,8 +9,8 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.3htp</groupId>
-	<artifactId>porvenir</artifactId>
-	<version>0.0.3-SNAPSHOT</version>
+	<artifactId>porvenir-sqs</artifactId>
+	<version>0.0.5-SNAPSHOT</version>
 	<name>porvenir</name>
 	<description>Demo project for IAM base Role</description>
 	<properties>
@@ -62,10 +62,6 @@
 		<dependency>
 			<groupId>com.amazonaws</groupId>
 			<artifactId>aws-java-sdk-sts</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

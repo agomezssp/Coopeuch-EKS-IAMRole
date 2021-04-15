@@ -21,7 +21,6 @@ public class AwsRoleCredentialConfig {
         return WebIdentityTokenCredentialsProvider
                 .builder()
                 .roleArn(env.getProperty("AWS_ROLE_ARN"))
-//                .roleArn("arn:aws:iam::369595298303:role/norlis-test-messaging")
                 .build();
     }
 
