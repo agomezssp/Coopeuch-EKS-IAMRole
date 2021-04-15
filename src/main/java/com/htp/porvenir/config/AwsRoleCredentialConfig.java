@@ -23,5 +23,4 @@ public class AwsRoleCredentialConfig {
                 .roleArn(env.getProperty("AWS_ROLE_ARN"))
                 .build();
     }
-
 }

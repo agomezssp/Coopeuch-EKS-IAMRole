@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+  labels:
+    app: example-sqs
+  name: example-sqs
+  namespace: 3htp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example-sqs
+  template:
+    metadata:
+      labels:
+        app: example-sqs
+        version: ""
+    spec:
+      containers:
+      - args:
+        - java -jar /app/porvenir-sqs-0.0.5-SNAPSHOT.jar --spring.config.location=/app/application.properties
+        command:
+        - /bin/sh
+        - -c
+        image: lramirezq/sqsrole:0.1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 300m
+            memory: 512Mi
+          requests:
+            cpu: 200m
+            memory: 256Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /app/application.properties
+          name: conf-volumen
+          subPath: application.properties
+        imagePullPolicy: IfNotPresent
+        name: example-sqs
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+      restartPolicy: Always
+      serviceAccount: ccm-serviceaccount
+      serviceAccountName: ccm-serviceaccount
+      schedulerName: default-scheduler
+      volumes:
+      - configMap:
+          items:
+          - key: application.properties
+            path: application.properties
+          name: cm-sqs
+        name: conf-volumen

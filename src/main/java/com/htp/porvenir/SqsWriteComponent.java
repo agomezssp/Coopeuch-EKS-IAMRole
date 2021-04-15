@@ -15,14 +15,12 @@ import java.util.Map;
 @Slf4j
 public class SqsWriteComponent {
 
-
     private final QueueMessagingTemplate queueMessagingTemplate;
-
-
     @Value("${app.queue.out.name}")
-    private String outQueue;
 
+    private String outQueue;
     @Autowired
+
     public SqsWriteComponent(AmazonSQSAsync amazonSQSAsync) {
         this.queueMessagingTemplate = new QueueMessagingTemplate(amazonSQSAsync);
     }
@@ -32,8 +30,6 @@ public class SqsWriteComponent {
             log.warn("SQS Producer cant produce 'null' value");
             return;
         }
-
-
         log.info(" Message {} " + message);
         log.info(" Queue name {} " + outQueue);
 
