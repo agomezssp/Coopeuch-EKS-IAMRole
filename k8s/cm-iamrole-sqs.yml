@@ -6,6 +6,6 @@ metadata:
   namespace: 3htp
 data:
   application.properties: |
-    app.queue.name=messageSendingJob.fifo
-    app.queue.out.name=messageScanJob.fifo
-    app.use-role=true
+    app.queue.name=IAMRoleEKS-q-DEV-in
+    app.queue.out.name=IAMRoleEKS-q-DEV-out.fifo
+    app.use-role-type=WebIdentityTokenCredentialsProvider

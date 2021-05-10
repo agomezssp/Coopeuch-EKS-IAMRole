@@ -1,9 +1,6 @@
-FROM ubuntu
-RUN apt-get update &&\
-    apt install default-jre -y &&\
-    apt install curl -y &&\
-    apt-get install vim -y
-RUN mkdir  /app
-COPY porvenir-sqs-0.0.5-SNAPSHOT.jar /app
+FROM lramirezq/base:ms-jre-8
+RUN mkdir /app
+COPY ./iamrole-sqs-0.0.1.jar /app
+
 ENTRYPOINT ["tail","-f","/dev/null"]
 EXPOSE 8080

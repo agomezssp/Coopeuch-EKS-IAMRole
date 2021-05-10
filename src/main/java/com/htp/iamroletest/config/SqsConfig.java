@@ -1,4 +1,4 @@
-package com.htp.porvenir.config;
+package com.htp.iamroletest.config;
 
 import com.amazonaws.auth.AWSCredentialsProvider;
 import com.amazonaws.services.sqs.AmazonSQSAsync;

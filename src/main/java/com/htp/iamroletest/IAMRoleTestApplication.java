@@ -1,4 +1,4 @@
-package com.htp.porvenir;
+package com.htp.iamroletest;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
@@ -9,9 +9,9 @@ import org.springframework.cloud.aws.autoconfigure.context.ContextStackAutoConfi
 
 @SpringBootApplication(exclude = {ContextStackAutoConfiguration.class, ContextCredentialsAutoConfiguration.class})
 @Slf4j
-public class PorvenirApplication {
+public class IAMRoleTestApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PorvenirApplication.class, args);
+		SpringApplication.run(IAMRoleTestApplication.class, args);
 	}
 }

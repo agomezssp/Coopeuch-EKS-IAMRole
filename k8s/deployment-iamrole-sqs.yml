@@ -3,27 +3,27 @@ kind: Deployment
 metadata:
   annotations:
   labels:
-    app: example-sqs
-  name: example-sqs
+    app: iamrole-sqs
+  name: iamrole-sqs
   namespace: 3htp
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: example-sqs
+      app: iamrole-sqs
   template:
     metadata:
       labels:
-        app: example-sqs
+        app: iamrole-sqs
         version: ""
     spec:
       containers:
       - args:
-        # - java -jar /app/porvenir-sqs-0.0.5-SNAPSHOT.jar --spring.config.location=/app/application.properties
+        - java -jar /home/coopeuch/app/iamrole-sqs-0.0.1.jar --spring.config.location=/home/coopeuch/app/application.properties
         command:
         - /bin/sh
         - -c
-        image: lramirezq/base:ms-jre-8
+        image: 369595298303.dkr.ecr.us-east-2.amazonaws.com/coopeuch:ms-jre-8
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
@@ -38,11 +38,11 @@ spec:
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
         volumeMounts:
-        - mountPath: /app/application.properties
+        - mountPath: /home/coopeuch/app/application.properties
           name: conf-volumen
           subPath: application.properties
         imagePullPolicy: IfNotPresent
-        name: example-sqs
+        name: iamrole-sqs
         ports:
         - containerPort: 8080
           protocol: TCP

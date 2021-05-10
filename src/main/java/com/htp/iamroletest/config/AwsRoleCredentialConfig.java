@@ -1,4 +1,4 @@
-package com.htp.porvenir.config;
+package com.htp.iamroletest.config;
 
 import com.amazonaws.auth.AWSCredentialsProvider;
 import com.amazonaws.auth.WebIdentityTokenCredentialsProvider;
@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.core.env.Environment;
 
 @Configuration
-@ConditionalOnProperty(prefix = "app", name = "use-role", havingValue = "WebIdentityTokenCredentialsProvider")
+@ConditionalOnProperty(prefix = "app", name = "use-role-type", havingValue = "WebIdentityTokenCredentialsProvider")
 @Slf4j
 public class AwsRoleCredentialConfig {
 
