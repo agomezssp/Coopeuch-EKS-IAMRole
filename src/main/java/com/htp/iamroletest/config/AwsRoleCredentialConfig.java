@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.core.env.Environment;
 
 @Configuration
-@ConditionalOnProperty(prefix = "app", name = "use-role")
+@ConditionalOnProperty(prefix = "app", name = "use-role", havingValue = "WebIdentityTokenCredentialsProvider")
 @Slf4j
 public class AwsRoleCredentialConfig {
 

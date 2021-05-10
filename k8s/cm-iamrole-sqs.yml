@@ -9,10 +9,3 @@ data:
     app.queue.name=messageSendingJob.fifo
     app.queue.out.name=messageScanJob.fifo
     app.use-role=true
-
-
-
-
-
-
-  

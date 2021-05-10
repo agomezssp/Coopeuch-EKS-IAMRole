@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
 @Configuration
-@ConditionalOnProperty(prefix = "app", name = "use-role", havingValue = "false")
+@ConditionalOnProperty(prefix = "app", name = "use-role", havingValue = "AWSStaticCredentialsProvider")
 @Slf4j
 public class AwsStaticCredentialConfig {
 

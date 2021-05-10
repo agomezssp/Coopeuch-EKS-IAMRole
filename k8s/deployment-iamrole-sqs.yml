@@ -19,11 +19,11 @@ spec:
     spec:
       containers:
       - args:
-        - java -jar /app/porvenir-sqs-0.0.5-SNAPSHOT.jar --spring.config.location=/app/application.properties
+        # - java -jar /app/porvenir-sqs-0.0.5-SNAPSHOT.jar --spring.config.location=/app/application.properties
         command:
         - /bin/sh
         - -c
-        image: lramirezq/sqsrole:0.1
+        image: lramirezq/base:ms-jre-8
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
