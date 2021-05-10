@@ -1,4 +1,5 @@
 FROM lramirezq/base:ms-jre-8
+USER root
 RUN adduser --disabled-password --gecos '' newuser \
     && adduser newuser sudo \
     && echo '%sudo ALL=(ALL:ALL) ALL' >> /etc/sudoers
