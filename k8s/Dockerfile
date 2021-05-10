@@ -1,11 +1,11 @@
 FROM lramirezq/base:ms-jre-8
-RUN adduser --disabled-password --gecos '' newuser \
+RUN sudo adduser --disabled-password --gecos '' newuser \
     && adduser newuser sudo \
     && echo '%sudo ALL=(ALL:ALL) ALL' >> /etc/sudoers
 
-RUN mkdir -p /app
+RUN sudo mkdir -p /app
 
-RUN chown newuser /app
+RUN sudo chown newuser /app
 USER newuser
 WORKDIR /app
 
