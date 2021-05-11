@@ -19,11 +19,11 @@ spec:
     spec:
       containers:
       - args:
-        - java -jar /home/coopeuch/app/iamrole-sqs-0.0.1.jar --spring.config.location=/home/coopeuch/app/application.properties
+        - java -jar /app/iamrole-sqs-0.0.1.jar --spring.config.location=/app/application.properties
         command:
         - /bin/sh
         - -c
-        image: 369595298303.dkr.ecr.us-east-2.amazonaws.com/coopeuch:ms-jre-8
+        image: 369595298303.dkr.ecr.us-east-2.amazonaws.com/coopeuch-iamrole-java-test:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
@@ -38,7 +38,7 @@ spec:
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
         volumeMounts:
-        - mountPath: /home/coopeuch/app/application.properties
+        - mountPath: /app/application.properties
           name: conf-volumen
           subPath: application.properties
         imagePullPolicy: IfNotPresent
