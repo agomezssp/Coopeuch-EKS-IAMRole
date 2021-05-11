@@ -23,7 +23,7 @@ spec:
         command:
         - /bin/sh
         - -c
-        image: 369595298303.dkr.ecr.us-east-2.amazonaws.com/coopeuch-iamrole-java-test:latest
+        image: 369595298303.dkr.ecr.us-east-2.amazonaws.com/coopeuch-iamrole-java-test:1.0.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
