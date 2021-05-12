@@ -10,7 +10,7 @@ RUN mkdir -p /app
 #USER newuser
 WORKDIR /app
 
-COPY ./target/iamrole-sqs-0.0.1.jar /app
+COPY target/iamrole-sqs-0.0.1.jar /app
 
 ENTRYPOINT ["tail","-f","/dev/null"]
 EXPOSE 8080
