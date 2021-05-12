@@ -1,0 +1,16 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      java: correcto8
+  build:
+    commands:
+      - echo Starting Java build at `date`
+      - mvn package
+
+    finally:
+      - echo Finish Java build at `date`
+
+artifacts:
+  files:
+    - 'target/iamrole-sqs-0.0.1.jar'
